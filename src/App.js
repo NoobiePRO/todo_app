@@ -6,7 +6,7 @@ import { db } from './firebase_config';
 import firebase from "firebase";
 import TodoListItem from './Todo';
 
-function App() {}
+function App() {
   const [todos,setTodos] = useState([]);
   const [todo,setTodo] = useState("");
 
