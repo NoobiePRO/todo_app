@@ -15,13 +15,13 @@ function App() {
   }, []);
 
   function getTodo() {
-    db.collection("todoList").onSnapshot(function (querySnapshot){
+    db.collection("todos").onSnapshot(function (querySnapshot){
       setTodos(
         querySnapshot.docs.map((doc)=>({
         id: doc.id,
         todo: doc.data().todo,
         inprogress: doc.data().inprogress,
-      }))
+      }))   
     );
        
     });
@@ -29,7 +29,7 @@ function App() {
 
   function appTodo(e){ 
     e.preventDefault();
-    db.collection("todoList").add({
+    db.collection("todos").add({
       inprogress: true,
       time: firebase.firestore.FieldValue.serverTimestamp(),
       todo: todo,
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App" style={{display:'flex', justifyContent:'center', alignItems: 'center', flexDirection:'column'}}>
     <div>  
-      <h1 style={{marginTop:"50px"}}>Sarthak Sharma TODO's App</h1>
+      <h1 style={{marginTop:"50px"}}>Daily To-Do List: [Sarthak Sharma]</h1>
       <form>
       <TextField 
         id="standard-basic" 
@@ -49,7 +49,7 @@ function App() {
         label="Write a TODO" 
         style={{maxWidth:'500px', width:'90vw' }}
       />
-      <Button type="submit" onClick={appTodo} variant="contained" style={{display:"none"}}>Submit</Button>
+      <Button type="submit" className="button" onClick={appTodo} variant="contained" style={{display:"none"}}>Submit</Button>
       </form>
       <div style={{maxWidth:'500px', width:'90vw', marginTop:"24px" }}>
       {todos.map((todo) => (

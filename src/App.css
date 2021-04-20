@@ -2,6 +2,14 @@
 
 *{
   font-family: 'Orelega One', cursive;
-  background-color: aqua;
+
   /* text-align: center;  */
 }  
+
+*{
+  /* background-color: antiquewhite; */
+}
+
+.button{
+  color: rgb(6, 20, 16);
+}
