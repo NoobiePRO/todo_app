@@ -6,7 +6,7 @@ import { db } from './firebase_config';
 import firebase from "firebase";
 import TodoListItem from './Todo';
 
-function App() {
+function App() {}
   const [todos,setTodos] = useState([]);
   const [todo,setTodo] = useState("");
 
@@ -42,7 +42,7 @@ function App() {
     <div>  
       <h1 style={{marginTop:"50px"}}>Daily To-Do List: [Sarthak Sharma]</h1>
       <form>
-      <TextField 
+      <TextField
         id="standard-basic" 
         value={todo} 
         onChange={(e) => setTodo(e.target.value)}  
